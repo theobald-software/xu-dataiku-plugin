@@ -1,0 +1,68 @@
+/* This file is the descriptor for the Custom python dataset xtract-universal_extraction */
+{
+    "meta" : {
+        // label: name of the dataset type as displayed, should be short
+        "label": "Xtract Universal Extraction",
+
+        // description: longer string to help end users understand what this dataset type is
+        "description": "Extracts SAP data via Xtract Universal",
+
+        // icon: must be one of the FontAwesome 5.15.4 icons, complete list here at https://fontawesome.com/v5/docs/
+        "icon": "fas fa-faucet"
+    },
+
+
+    /* Can this connector read data ? */
+    "readable": true,
+    /* Can this connector write data ? */
+    "writable": false,
+
+
+    /* params:
+    DSS will generate a formular from this list of requested parameters.
+    Your component code can then access the value provided by users using the "name" field of each parameter.
+
+    Available parameter types include:
+    STRING, INT, DOUBLE, BOOLEAN, DATE, SELECT, TEXTAREA, PRESET and others.
+
+    For the full list and for more details, see the documentation: https://doc.dataiku.com/dss/latest/plugins/reference/params.html
+    */
+    
+    "paramsPythonSetup": "get_extraction_choices.py",
+    "params": [
+        {
+            "name": "xuServerPreset",
+            "label": "Xtract Universal server preset",
+            "type": "PRESET",
+            "parameterSetId": "xu-server",
+            "mandatory": true
+        },
+        {
+            "name": "extraction",
+            "label": "Extraction",
+            "type": "SELECT",
+            "mandatory": true,
+            "getChoicesFromPython": true,
+            "triggerParameters": ["xuServerPreset"]
+        },
+        {
+            "name": "parameters",
+            "label": "Parameters",
+            "type": "OBJECT_LIST",
+            "subParams": [
+                {
+                    "name": "paramName",
+                    "type": "SELECT",
+                    "label": "Name",
+                    "getChoicesFromPython": true,
+                    "triggerParameters": ["extraction"]
+                },
+                {
+                    "name": "paramValue",
+                    "type": "STRING",
+                    "label": "Value"
+                }
+            ]
+        }
+    ]
+}

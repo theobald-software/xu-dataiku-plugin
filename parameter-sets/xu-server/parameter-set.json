@@ -1,0 +1,93 @@
+/* This file is the descriptor for the parameter set xu-server */
+{
+    "meta" : {
+        // label: name of the parameter set as displayed, should be short
+        "label": "Xtract Universal Server",
+
+        // description: longer string to help end users understand what these parameter correspond to
+        "description": "Connects to an Xtract Universal server"
+    },
+
+    /* if users are allowed to fill the values for an instance of this parameter
+       set directly in the plugin component using it, as opposed to only be allowed
+       to select already defined presets (default value, can be changed in plugin
+       settings)
+    */
+    
+    "defaultDefinableInline": false,
+
+    /* if users are allowed to define presets at the project level in addition
+       to the instance level (default value, can be changed in plugin settings) */
+    "defaultDefinableAtProjectLevel": true,
+
+    /* The field "params" holds a list of all the params
+       for which the user will be prompted for values. The ones in
+       pluginParams relate to plugin settings (ie instance-level)
+       and the ones in params relate to element settings (ie recipe,
+       dataset, ...)
+
+       The values given by the user will override/complete the ones
+       set by the user in the element's (dataset, recipe,...) config.
+
+       To make parameters not visible in the element's config,
+       define them here but not in the element's json.
+
+       The available parameter types include:
+       STRING, STRINGS, INT, DOUBLE, BOOLEAN, SELECT, MULTISELECT, MAP, TEXTAREA,
+       PRESET, DATASET, DATASET_COLUMN, MANAGED_FOLDER, CREDENTIAL_REQUEST
+
+       For the full list and for more details, see the documentation: https://doc.dataiku.com/dss/latest/plugins/reference/params.html
+    */
+
+    "pluginParams": [
+    ],
+
+    "params": [
+        {
+            "name": "host",
+            "label": "Xtract Universal server",
+            "type": "STRING",
+            "description": "Hostname or IP address of the Xtract Universal server.",
+            "defaultValue": "localhost",
+            "mandatory": true
+        },
+        {
+            "name": "tlsEnabled",
+            "label": "Transport Layer Security (HTTPS)",
+            "type": "BOOLEAN",
+            "description": "Use TLS for communication with the XU server.",
+            "defaultValue": false,
+            "mandatory": true
+        },
+        {
+            "name": "user",
+            "label": "Username",
+            "type": "STRING",
+            "description": "Name of the user that authenticates against Xtract Universal server.",
+            "visibilityCondition": "model.tlsEnabled"
+        },
+        {
+            "name": "password",
+            "label": "Password",
+            "type": "PASSWORD",
+            "description": "Password of the user that authenticates against Xtract Universal server.",
+            "visibilityCondition": "model.tlsEnabled"
+        },
+        {
+            "name": "customPortEnabled",
+            "label": "Customize port",
+            "type": "BOOLEAN",
+            "description": "Specify a custom port for communication with the XU server.",
+            "defaultValue": false,
+            "mandatory": true
+        },
+        {
+            "name": "port",
+            "label": "Port",
+            "type": "INT",
+            "description": "TCP listener port of the XU web server.",
+            "defaultValue": 8165,
+            "visibilityCondition": "model.customPortEnabled"
+        }
+    ]
+}
