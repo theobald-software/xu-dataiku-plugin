@@ -3,7 +3,7 @@
     "id": "xtract-universal",
 
     // It is highly recommended to use Semantic Versioning
-    "version": "0.0.1",
+    "version": "2024.8.5",
 
     // Meta data for display purposes:
     "meta": {
@@ -22,7 +22,7 @@
         "tags": ["Connector", "SAP"], 
 
         // URL where the user can learn more about the plugin
-        "url": "https://help.theobald-software.com/en/xtract-universal/",
+        "url": "https://helpcenter.theobald-software.com/xtract-universal/documentation/destinations/dataiku/",
 
         "licenseInfo": "Proprietary"
     }
