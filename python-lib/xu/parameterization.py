@@ -69,15 +69,20 @@ class RunParameterCollection:
     def _read_parameters_from_dict(parameter_collection_name: str, parameters_dictionary: dict) -> List[RunParameter]:
         result_list: List[RunParameter] = []
 
-        temp_parameter: dict
-        for temp_parameter in parameters_dictionary[parameter_collection_name]:
+        try:
+            api_params = parameters_dictionary[parameter_collection_name]
+        except KeyError:
+            return result_list
+
+        api_param: dict
+        for api_param in api_params:
             result_list.append(
                 RunParameter(
-                    name=temp_parameter.get("name", ""),
-                    description=temp_parameter.get("description", ""),
-                    parameter_type=temp_parameter.get("type", ""),
-                    default_value=temp_parameter.get("default", ""),
-                    value=temp_parameter.get("value", "")
+                    name=api_param.get("name", ""),
+                    description=api_param.get("description", ""),
+                    parameter_type=api_param.get("type", ""),
+                    default_value=api_param.get("default", ""),
+                    value=api_param.get("value", "")
                 )
             )
 
