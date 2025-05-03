@@ -49,7 +49,7 @@ class Client:
             "ByteArrayLengthMax": "string",  # there seems to be no binary / blob type
             "ByteArrayLengthUnknown": "string",  # there seems to be no binary / blob type
             "ConvertedDate": "date",
-            "ConvertedTimeStampTicks": "datetime",
+            "ConvertedTimeStampTicks": "datetimenotz",
             "Date": "string",
             "Time": "date",
         })
