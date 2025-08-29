@@ -45,13 +45,15 @@ class Client:
             "NumericString": "string",
             "StringLengthMax": "string",
             "StringLengthUnknown": "string",
-            "ByteArrayLengthExact": "string",  # there seems to be no binary / blob type
-            "ByteArrayLengthMax": "string",  # there seems to be no binary / blob type
-            "ByteArrayLengthUnknown": "string",  # there seems to be no binary / blob type
-            "ConvertedDate": "date",
+            "HexStringLengthExact": "string",
+            "HexStringLengthMax": "string",
+            "HexStringLengthUnknown": "string",
+            "ConvertedDate": "dateonly",
+            "ConvertedPostingPeriod": "dateonly",
+            "ConvertedTime": "datetimenotz",
+            "ConvertedTimeStampSeconds": "datetimenotz",
             "ConvertedTimeStampTicks": "datetimenotz",
             "Date": "string",
-            "Time": "date",
         })
 
         object.__setattr__(self, "_dataiku_meanings", {
@@ -64,13 +66,15 @@ class Client:
             "NumericString": "LongMeaning",
             "StringLengthMax": "Text",
             "StringLengthUnknown": "Text",
-            "ByteArrayLengthExact": "Text",  # there seems to be no binary / blob meaning
-            "ByteArrayLengthMax": "Text",  # there seems to be no binary / blob meaning
-            "ByteArrayLengthUnknown": "Text",  # there seems to be no binary / blob meaning
-            "ConvertedDate": "Date",
-            "ConvertedTimeStampTicks": "DateTime",
-            "Date": "Date",
-            "Time": "Date",
+            "HexStringLengthExact": "Text",  # there seems to be no binary / blob meaning
+            "HexStringLengthMax": "Text",  # there seems to be no binary / blob meaning
+            "HexStringLengthUnknown": "Text",  # there seems to be no binary / blob meaning
+            "ConvertedDate": "DateOnly",
+            "ConvertedPostingPeriod": "DateOnly",
+            "ConvertedTime": "DatetimeNoTz",
+            "ConvertedTimeStampSeconds": "DatetimeNoTz",
+            "ConvertedTimeStampTicks": "DatetimeNoTz",
+            "Date": "Text"
         })
 
     def get_extraction_choices(self):
