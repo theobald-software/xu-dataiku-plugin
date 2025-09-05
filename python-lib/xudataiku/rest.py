@@ -50,7 +50,6 @@ class Client:
             "HexStringLengthUnknown": "string",
             "ConvertedDate": "dateonly",
             "ConvertedPostingPeriod": "dateonly",
-            "ConvertedTime": "datetimenotz",
             "ConvertedTimeStampSeconds": "datetimenotz",
             "ConvertedTimeStampTicks": "datetimenotz",
             "Date": "string",
@@ -71,7 +70,6 @@ class Client:
             "HexStringLengthUnknown": "Text",  # there seems to be no binary / blob meaning
             "ConvertedDate": "DateOnly",
             "ConvertedPostingPeriod": "DateOnly",
-            "ConvertedTime": "DatetimeNoTz",
             "ConvertedTimeStampSeconds": "DatetimeNoTz",
             "ConvertedTimeStampTicks": "DatetimeNoTz",
             "Date": "Text"
